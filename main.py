@@ -33,26 +33,22 @@ def submenu_contact():
         print_menu(list_contact_menu)
         perintahh = int(input('Silahkan Pilih Menu [1 - 3]: '))
         # Code untuk menjalankan "Tampilkan Kontak Seluruh Petugas"
-        if perintahh == 1:
-            if len(database) > 0:
-                for i, j in enumerate(database):
-                    print(i+1, f". ID: {j['ID']}, nama: {j['nama']}, lantai: {j['lantai']}, jabatan: {j['jabatan']}, no tlpn: {j['telepon']}")
-            else:
-                print('\nooooo Tidak Ada Data Kontak Petugas ooooo')
+        if perintahh == 1 and len(database) > 0:
+            for i, j in enumerate(database):
+                print(i+1, f". ID: {j['ID']}, nama: {j['nama']}, lantai: {j['lantai']}, jabatan: {j['jabatan']}, no tlpn: {j['telepon']}")
         # Code untuk menjalankan "Tampilkan Kontak Petugas di lantai tertentu"
-        elif perintahh == 2:
-            if len(database) != 0:
-                input_id = int(input('Masukkan Nomor Lantai: '))
-                for i, j in enumerate(database):
-                    if j['lantai'] == input_id:
-                        print(f'''Berikut Adalah Kontak Petugas Di Lantai {input_id}: ID: {j['ID']}, nama: {j['nama']}, lantai: {j['lantai']}, jabatan: {j['jabatan']}, no tlpn: {j['telepon']}''')
-                    else:
-                        print(f'\nooooo Tidak Ada Data Kontak Petugas Di Lantai {input_id} atau Lantai {input_id} Tidak Ada ooooo')
-                        break
-            else:
-                print('\nooooo Tidak Ada Data Kontak Petugas ooooo')
+        elif perintahh == 2 and len(database) != 0:
+            input_id = int(input('Masukkan Nomor Lantai: '))
+            for i, j in enumerate(database):
+                if j['lantai'] == input_id:
+                    print(f'''Berikut Adalah Kontak Petugas Di Lantai {input_id}: ID: {j['ID']}, nama: {j['nama']}, lantai: {j['lantai']}, jabatan: {j['jabatan']}, no tlpn: {j['telepon']}''')
+                else:
+                    print(f'\nooooo Tidak Ada Data Kontak Petugas Di Lantai {input_id} atau Lantai {input_id} Tidak Ada ooooo')
+                    break
         elif perintahh == 3:
             return menu_utama()
+        else:
+            print('\nooooo Tidak Ada Data Kontak Petugas ooooo')
 
 def submenu_add():
     while True:
